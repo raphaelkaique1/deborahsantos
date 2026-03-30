@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Déborah Santos da Silva Dias - Currículo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --accent: #3d7cb5;
+    --accent-light: #e8f1f8;
+    --warm: #c8915a;
+    --text: #2c3e50;
+    --text-light: #5a6d7e;
+    --bg: #fafbfc;
+    --white: #ffffff;
+    --border: #dde4ea;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: linear-gradient(135deg, #e8edf2 0%, #f0f2f5 50%, #eae6e1 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 4px 40px rgba(26, 39, 68, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 60px;
+    width: 180px; height: 180px;
+    border: 2px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.3px;
+  }
+  .header .objective-badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 18px;
+    background: var(--warm);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* Contact Bar */
+  .contact-bar {
+    background: var(--accent-light);
+    padding: 16px 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 13.5px;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-bar .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-bar .icon {
+    width: 16px; height: 16px;
+    fill: var(--accent);
+    flex-shrink: 0;
+  }
+  .contact-bar a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-bar a:hover { text-decoration: underline; }
+
+  /* Body Content */
+  .content {
+    padding: 40px 56px 48px;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 36px;
+  }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--navy);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .dot {
+    width: 8px; height: 8px;
+    background: var(--warm);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Summary */
+  .summary {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-light);
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--accent-light), #f5f7fa);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Education */
+  .education-item {
+    margin-bottom: 14px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+  }
+  .education-item:last-child { margin-bottom: 0; }
+  .education-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+  }
+  .education-school {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  .education-date {
+    font-size: 12.5px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* Courses */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+  }
+  .course-item {
+    font-size: 13.5px;
+    color: var(--text-light);
+    padding: 6px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .course-item::before {
+    content: '▸';
+    color: var(--warm);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .course-name { font-weight: 500; color: var(--text); }
+  .course-meta { font-size: 12px; color: var(--accent); }
+
+  /* Experience */
+  .experience-item {
+    margin-bottom: 28px;
+    position: relative;
+    padding-left: 20px;
+  }
+  .experience-item:last-child { margin-bottom: 0; }
+  .experience-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .experience-item::after {
+    content: '';
+    position: absolute;
+    left: 3.5px; top: 20px; bottom: -20px;
+    width: 1px;
+    background: var(--border);
+  }
+  .experience-item:last-child::after { display: none; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .exp-company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--navy);
+  }
+  .exp-date {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--warm);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .exp-role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .exp-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-light);
+    text-align: justify;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #aab5c1;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .header { padding: 32px 28px 28px; }
+    .header h1 { font-size: 28px; }
+    .contact-bar { padding: 14px 28px; flex-direction: column; gap: 10px; }
+    .content { padding: 28px; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .exp-header { flex-direction: column; gap: 2px; }
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Déborah Santos da Silva Dias</h1>
+    <div class="subtitle">31 anos · Casada · Brasileira · CNH Cat. B (Val. 2033)</div>
+    <div class="objective-badge">Assistente Administrativo / Assistente Financeiro</div>
+  </div>
+
+  <!-- Contact Bar -->
+  <div class="contact-bar">
+    <div class="item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <a href="mailto:santos_silva219@hotmail.com">santos_silva219@hotmail.com</a>
+    </div>
+    <div class="item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      (31) 99525-4643
+    </div>
+    <div class="item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+      Rua Cedro, 45, Sapucaias III, Contagem/MG - 32071-218
+    </div>
+    <div class="item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      <a href="https://www.linkedin.com/in/deborah-santos-da-silva/" target="_blank">linkedin.com/in/deborah-santos-da-silva</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Resumo -->
+    <div class="section">
+      <div class="section-title"><span class="dot"></span>Resumo Profissional</div>
+      <div class="summary">
+        Graduanda em Administração com atuação em gestão operacional, controle financeiro e follow-up de processos. Experiência em coordenar demandas diárias, otimizar fluxos de trabalho e manter comunicação efetiva com equipes e clientes. Trabalho com foco em resultados práticos, padronização de rotinas e cumprimento de metas operacionais.
+      </div>
+    </div>
+
+    <!-- Formação -->
+    <div class="section">
+      <div class="section-title"><span class="dot"></span>Formação Acadêmica</div>
+      <div class="education-item">
+        <div class="education-title">Bacharelado em Administração e Gestão Empresarial</div>
+        <div class="education-school">Anhanguera</div>
+        <div class="education-date">Fevereiro/2022 — Cursando (previsão: Julho/2026)</div>
+      </div>
+      <div class="education-item">
+        <div class="education-title">Ensino Médio</div>
+        <div class="education-school">Escola Estadual Carlos Drummond de Andrade</div>
+        <div class="education-date">Janeiro/2010 — Dezembro/2012</div>
+      </div>
+    </div>
+
+    <!-- Cursos -->
+    <div class="section">
+      <div class="section-title"><span class="dot"></span>Cursos Complementares</div>
+      <div class="courses-grid">
+        <div class="course-item"><span><span class="course-name">Contabilidade Básica</span> — Prime Cursos <span class="course-meta">(Dez/2023)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Brigadista</span> — Brigada Mineira <span class="course-meta">(Jun/2021)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Full SAP</span> — Grupo Sotreq <span class="course-meta">(Nov/2018)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Monitoramento SAP e GRC</span> — Grupo Sotreq <span class="course-meta">(Abr/2018)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Pacote Office, Internet, Access, Excel</span> <span class="course-meta">(Set/2017)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Fórmulas, Gráficos, Macro, VBA, Power BI</span> — Grupo Sotreq <span class="course-meta">(Mar/2017)</span></span></div>
+        <div class="course-item"><span><span class="course-name">Assistente Administrativo</span> — Cebrac <span class="course-meta">(Dez/2014)</span></span></div>
+      </div>
+    </div>
+
+    <!-- Experiência -->
+    <div class="section">
+      <div class="section-title"><span class="dot"></span>Experiência Profissional</div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <div class="exp-company">Logservice Transportes</div>
+          <div class="exp-date">Jan/2026 — Atual</div>
+        </div>
+        <div class="exp-role">Assistente Administrativo</div>
+        <div class="exp-desc">
+          Responsável pelo processo de compras de materiais e suprimentos, realizando cotações, negociações com fornecedores e emissão de pedidos de compra. Atuação no controle e gestão de estoque, com acompanhamento de entradas e saídas de materiais, garantindo a reposição adequada. Experiência no recebimento e conferência de materiais de escritório e de limpeza, verificando notas fiscais, quantidades e qualidade dos produtos. Realização de inventário da empresa. Apoio na organização e controle de documentos administrativos. Controle de faturas de cartão de crédito. Atendimento de recepção, incluindo atendimento telefônico, direcionamento de visitantes e suporte às demandas internas. Supervisão dos serviços de limpeza e manutenção predial.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <div class="exp-company">Castanha Norte Minas</div>
+          <div class="exp-date">Out/2024 — Jan/2025</div>
+        </div>
+        <div class="exp-role">Assistente Financeiro</div>
+        <div class="exp-desc">
+          Responsável pelo acompanhamento das entradas e saídas de recursos financeiros, realizando conciliações bancárias e conferência de registros financeiros. Gestão de contas a pagar e a receber, incluindo pagamentos a fornecedores, salários, férias, tributos e demais despesas. Elaboração de relatórios financeiros semanais, como demonstrativos de contas e fluxo de caixa. Suporte à equipe de vendas e apoio na emissão de documentos fiscais. Atuação em rotinas de Departamento Pessoal, incluindo processamento de folha de pagamento, administração de benefícios, controle de admissões e rescisões contratuais.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <div class="exp-company">Sitech Brasil</div>
+          <div class="exp-date">Nov/2023 — Mai/2024</div>
+        </div>
+        <div class="exp-role">Assistente Administrativo de Vendas</div>
+        <div class="exp-desc">
+          Monitoramento de contas a receber. Acompanhamento do recebimento de peças pelos clientes e obtenção dos comprovantes para garantir agilidade no processo. Emissão e retorno de notas fiscais de demonstração, ativação de kits de peças para aluguel em sinergia com time rental. Solicitação de cadastro e requisições de compra de peças para estoque e materiais de escritório. Cadastro e pagamentos de fornecedores, requisição de EPIs e compra de brindes.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-header">
+          <div class="exp-company">Sotreq S/A</div>
+          <div class="exp-date">Nov/2014 — Nov/2023</div>
+        </div>
+        <div class="exp-role">Auxiliar Administrativo</div>
+        <div class="exp-desc">
+          Rotinas financeiras de contas a receber, incluindo gestão de fluxo de caixa, provisões de notas fiscais, conferência de despesas, atendimento ao cliente interno e externo. Liberações e conciliações de ordens de vendas, confirmações bancárias, extratos de contas, emissão de boletos e contabilizações de vendas. Emissão de boletos de resíduos e NFs das filiais, input de dados referente a controle de manutenção de equipamentos predial, controle de acesso (emissão de crachás, ajustes e exclusões). Abertura e fechamento de malotes e correios, controle de folhas de pontos e distribuição de documentos. Atendimento de recepção presencial e telefônico, encaminhamento de candidatos para entrevistas no RH, gerenciamento de agendamentos e solicitações.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">Currículo gerado em Março de 2026</div>
+
+</div>
+</body>
+</html>
